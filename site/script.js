@@ -6,7 +6,7 @@ const IMG = {
   "redtruck": "images/redtruck.jpg",
   "sewing": "images/sewing.jpg",
   "zanco": "images/zanco.jpg",
-  "logo": "images/logo.jpg",
+  "logo": "images/logo.png",
   "gate2": "images/gate2.jpg",
   "zango": "images/zango.jpg",
   "bow": "images/bow.jpg",
