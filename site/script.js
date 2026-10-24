@@ -7,8 +7,8 @@ const IMG = {
   "redtruck": "images/redtruck.jpg",
   "sewing": "images/sewing.jpg",
   "zanco": "images/zanco.jpg",
-  "logo": "images/logo.png",
-  "logo-badge": "images/logo-badge.png",
+  "logo": "images/logo-clean.png",
+  "logo-clean": "images/logo-clean.png",
   "gate2": "images/gate2.jpg",
   "zango": "images/zango.jpg",
   "bow": "images/bow.jpg",
@@ -77,6 +77,47 @@ if (headerNav) {
   }, { passive: true });
 }
 
+// Central Service Category Selector (Tab switching between Transport and Trading)
+const catTabs = document.querySelectorAll('.svc-cat-tab');
+if (catTabs.length > 0) {
+  catTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      catTabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+        t.tabIndex = -1;
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      tab.tabIndex = 0;
+
+      const targetId = tab.getAttribute('aria-controls');
+      document.querySelectorAll('.svc-tab-panel').forEach(panel => {
+        if (panel.id === targetId) {
+          panel.removeAttribute('hidden');
+          panel.classList.add('active');
+        } else {
+          panel.setAttribute('hidden', '');
+          panel.classList.remove('active');
+        }
+      });
+    });
+
+    tab.addEventListener('keydown', e => {
+      const tabsArr = Array.from(catTabs);
+      const currIdx = tabsArr.indexOf(tab);
+      let nextIdx = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextIdx = (currIdx + 1) % tabsArr.length;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') nextIdx = (currIdx - 1 + tabsArr.length) % tabsArr.length;
+      if (nextIdx !== null) {
+        e.preventDefault();
+        tabsArr[nextIdx].click();
+        tabsArr[nextIdx].focus();
+      }
+    });
+  });
+}
+
 // Expandable Service Accordions (Interactive and Accessible)
 document.querySelectorAll('.svc-accordion-header').forEach(header => {
   header.addEventListener('click', () => {
@@ -94,36 +135,6 @@ document.querySelectorAll('.svc-accordion-header').forEach(header => {
     }
   });
 });
-
-// Legacy Service tabs support if present
-const tabs = [...document.querySelectorAll('.tab')];
-function selectServiceTab(idx, focus) {
-  tabs.forEach((tab, k) => {
-    const isSelected = k === idx;
-    tab.setAttribute('aria-selected', isSelected);
-    tab.tabIndex = isSelected ? 0 : -1;
-    const panel = document.getElementById('p' + k);
-    if (panel) {
-      panel.hidden = !isSelected;
-      if (isSelected) {
-        panel.style.opacity = '0';
-        panel.style.transform = 'translateY(6px)';
-        setTimeout(() => {
-          panel.style.transition = 'opacity 0.28s ease, transform 0.28s ease';
-          panel.style.opacity = '1';
-          panel.style.transform = 'translateY(0)';
-        }, 10);
-      }
-    }
-  });
-  if (focus && tabs[idx]) tabs[idx].focus();
-}
-
-if (tabs.length > 0) {
-  tabs.forEach((tab, i) => {
-    tab.addEventListener('click', () => selectServiceTab(i));
-  });
-}
 
 // Enquiry form handler
 const enqForm = document.getElementById('enq');
