@@ -1,5 +1,6 @@
 const IMG = {
-  "ceo": "images/ceo.jpg",
+  "ceo": "images/ceo-new.jpg",
+  "ceo-new": "images/ceo-new.jpg",
   "gate1": "images/gate1.jpg",
   "yard": "images/yard.jpg",
   "handover": "images/handover.jpg",
@@ -7,6 +8,7 @@ const IMG = {
   "sewing": "images/sewing.jpg",
   "zanco": "images/zanco.jpg",
   "logo": "images/logo.png",
+  "logo-badge": "images/logo-badge.png",
   "gate2": "images/gate2.jpg",
   "zango": "images/zango.jpg",
   "bow": "images/bow.jpg",
@@ -42,7 +44,6 @@ if (burger && menu) {
     }
   });
 
-  // Close menu on click outside
   document.addEventListener('click', e => {
     if (!menu.contains(e.target) && !burger.contains(e.target) && menu.classList.contains('open')) {
       menu.classList.remove('open');
@@ -76,7 +77,25 @@ if (headerNav) {
   }, { passive: true });
 }
 
-// Service tabs functionality
+// Expandable Service Accordions (Interactive and Accessible)
+document.querySelectorAll('.svc-accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const item = header.closest('.svc-accordion-item');
+    const content = item.querySelector('.svc-accordion-content');
+    const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+    header.setAttribute('aria-expanded', !isExpanded);
+    if (!isExpanded) {
+      item.classList.add('active');
+      content.removeAttribute('hidden');
+    } else {
+      item.classList.remove('active');
+      content.setAttribute('hidden', '');
+    }
+  });
+});
+
+// Legacy Service tabs support if present
 const tabs = [...document.querySelectorAll('.tab')];
 function selectServiceTab(idx, focus) {
   tabs.forEach((tab, k) => {
@@ -103,27 +122,7 @@ function selectServiceTab(idx, focus) {
 if (tabs.length > 0) {
   tabs.forEach((tab, i) => {
     tab.addEventListener('click', () => selectServiceTab(i));
-    tab.addEventListener('keydown', e => {
-      let nextIndex = null;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') nextIndex = (i + 1) % tabs.length;
-      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') nextIndex = (i - 1 + tabs.length) % tabs.length;
-      if (e.key === 'Home') nextIndex = 0;
-      if (e.key === 'End') nextIndex = tabs.length - 1;
-      if (nextIndex !== null) {
-        e.preventDefault();
-        selectServiceTab(nextIndex, true);
-      }
-    });
   });
-
-  // Check URL hash for direct tab link (e.g. #t2)
-  if (window.location.hash) {
-    const hash = window.location.hash.replace('#', '');
-    const tabMatch = tabs.findIndex(t => t.id === hash || t.getAttribute('aria-controls') === hash);
-    if (tabMatch !== -1) {
-      selectServiceTab(tabMatch);
-    }
-  }
 }
 
 // Enquiry form handler
@@ -152,7 +151,7 @@ if (enqForm) {
       'Organisation: ' + v('org'),
       'Email: ' + v('email'),
       'Phone: ' + v('phone'),
-      'Enquiry type: ' + v('type'),
+      'Service requirement: ' + v('type'),
       '',
       'Message:',
       v('message')
@@ -160,7 +159,7 @@ if (enqForm) {
 
     const url = 'mailto:info@bhbinternational.com?subject=' + encodeURIComponent('Business enquiry: ' + v('type') + ' (' + v('name') + ')') + '&body=' + encodeURIComponent(body);
     st.className = 'status';
-    st.textContent = 'Opening your email client with the enquiry prepared. If it does not open automatically, please send your email directly to info@bhbinternational.com.';
+    st.textContent = 'Opening your email application with the enquiry prepared. If it does not open automatically, please send your email directly to info@bhbinternational.com.';
     window.location.href = url;
   });
 }

@@ -20,7 +20,7 @@
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="BHB International Ltd home">
-      <img data-img="logo" alt="BHB International Ltd logo" width="220" height="68">
+      <img src="images/logo.png" alt="BHB International Ltd logo" width="220" height="68">
     </a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
       <span></span><span></span><span></span>
@@ -37,47 +37,61 @@
 </header>
 
 <main id="main">
-<!-- Hero Section -->
-<div class="hero">
+<!-- Hero Section with Background Port Image & Two-Colour Typography -->
+<section class="hero home-hero">
   <div class="wrap">
-    <div class="grid">
-      <div class="fade-up">
-        <div class="kicker">BHB International Ltd • Nigeria</div>
-        <h1>Integrated Haulage, Logistics, Trading &amp; Project Solutions.</h1>
-        <p class="lead">Company-owned fleet transportation and logistics management, complemented by general trading, equipment imports, CSR programme delivery and infrastructure contracting services.</p>
-        <div class="btns">
-          <a class="btn blue" href="contact.html">Request a quote</a>
-          <a class="btn line" href="services.html">Explore our services</a>
-        </div>
-      </div>
-      <div class="collage fade-in-stagger">
-        <img class="a" data-img="redtruck" alt="BHB container truck carrying freight on highway">
-        <img class="b" data-img="yard" alt="Container handler stacking shipping containers in terminal yard">
-        <img class="c" data-img="gate2" alt="Truck at port terminal gate with shipping containers">
+    <div class="hero-content fade-up">
+      <div class="hero-kicker-pill">BHB International Ltd • Nigeria</div>
+      <h1 class="hero-title">
+        <span class="hero-hl-white">Integrated Haulage &amp; Logistics,</span><br>
+        <span class="hero-hl-blue">Trading &amp; Project Solutions.</span>
+      </h1>
+      <p class="hero-desc">Company-owned fleet transportation and logistics management, complemented by general trading, equipment imports, CSR programme delivery and infrastructure contracting services across Nigeria.</p>
+      <div class="hero-btns">
+        <a class="btn blue" href="contact.html">Request a Quote</a>
+        <a class="btn line-white" href="services.html">Explore Our Services</a>
       </div>
     </div>
-    <div class="facts reveal">
-      <div><b>Company-Owned Fleet</b><span>Dedicated trucks &amp; flatbed trailers for dependable haulage</span></div>
-      <div><b>Container &amp; Export Logistics</b><span>Loaded haulage, port transit &amp; export commodity movements</span></div>
-      <div><b>General Trading &amp; Imports</b><span>Truck heads, flatbed trailers &amp; commercial merchandise</span></div>
-      <div><b>Contracting &amp; Infrastructure</b><span>CSR programmes, solar lighting, boreholes &amp; renovations</span></div>
+
+    <!-- Balanced 4-Fact Bar -->
+    <div class="facts-banner reveal">
+      <div class="fact-card">
+        <b>Company-Owned Fleet</b>
+        <span>Dedicated trucks &amp; flatbeds for dependable road haulage</span>
+      </div>
+      <div class="fact-card">
+        <b>Container &amp; Freight</b>
+        <span>Loaded haulage, port transit &amp; customer commodity movements</span>
+      </div>
+      <div class="fact-card">
+        <b>General Trading</b>
+        <span>Importation and sale of truck heads, trailers &amp; merchandise</span>
+      </div>
+      <div class="fact-card">
+        <b>Project Contracting</b>
+        <span>CSR programmes, solar lighting, boreholes &amp; renovations</span>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- About Section -->
-<section id="about" class="reveal">
+<section id="about" class="white reveal">
   <div class="wrap">
     <div class="split">
-      <div class="photo tall"><img data-img="yard" alt="Container handler stacking shipping containers in a terminal yard"></div>
+      <div class="photo-wrap">
+        <img src="images/yard.jpg" alt="Container handler stacking shipping containers in a terminal yard" width="580" height="420">
+      </div>
       <div class="about-text">
-        <div class="tag" style="margin-bottom:12px">About our company</div>
-        <h2 class="h2">One Logistics Partner.<br>Coordinated Solutions.</h2>
-        <p class="sub" style="margin-top:14px;color:var(--text);font-weight:500">BHB International Ltd is a Nigerian company with a core focus on integrated haulage and logistics management through its company-owned fleet.</p>
+        <h2>
+          <span class="text-brand-dark">One Logistics Partner.</span><br>
+          <span class="text-brand-blue">Coordinated Solutions.</span>
+        </h2>
+        <p class="sub">BHB International Ltd is a Nigerian company with a core focus on integrated haulage and logistics management through its company-owned fleet.</p>
         <p>We also undertake general trading, importation and sales of truck heads and flatbed trailers, and contract-based execution of CSR, water and facility infrastructure projects across Nigeria.</p>
         <p>Our operations are built on direct fleet control, structured dispatch, clear route planning and disciplined execution from enquiry to final delivery.</p>
         <div style="margin-top:28px">
-          <a class="btn line sm" href="about.html">Read full company profile</a>
+          <a class="btn line sm" href="about.html">Read Full Company Profile</a>
         </div>
       </div>
     </div>
@@ -96,8 +110,7 @@
 
     <!-- Core Values -->
     <div class="values-head reveal">
-      <div class="tag" style="margin-bottom:10px">Guiding Principles</div>
-      <h2 class="h2">Our Core Values</h2>
+      <h2 class="h2"><span class="text-brand-dark">Our Core</span> <span class="text-brand-blue">Values</span></h2>
       <p class="sub">The principles that guide our relationships, decisions and delivery across every operation.</p>
     </div>
 
@@ -122,248 +135,409 @@
   </div>
 </section>
 
-<!-- Services Overview Section -->
+<!-- Redesigned Main Services Section with Expandable Accordions -->
 <section id="services" class="tint reveal">
   <div class="wrap">
-    <div class="head">
-      <div class="division-badge">Two Principal Divisions</div>
-      <h2 class="services-heading">Integrated Transport &amp; General Trading Solutions</h2>
+    <div class="services-section-head">
+      <h2 class="h2"><span class="text-brand-dark">Integrated Transport</span> <span class="text-brand-blue">&amp; General Trading</span></h2>
       <p class="sub">Direct control of company-owned haulage assets, complemented by commercial trading, equipment procurement and project-based contract delivery.</p>
     </div>
 
-    <!-- Division 1 -->
-    <div class="division-block">
-      <div class="division-head">
-        <span class="tag">Division 01</span>
-        <h3>Integrated Transport &amp; Logistics Services</h3>
-        <p>Focused service lines designed to support cargo movement, company-owned fleet utilisation and end-to-end transport coordination.</p>
+    <!-- Division 1: Integrated Transport & Logistics Services -->
+    <div class="services-division-block">
+      <div class="division-title-bar">
+        <h3 class="division-main-title">Integrated Transport &amp; Logistics Services</h3>
+        <p class="division-subtitle">Focused service lines designed to support cargo movement, company-owned fleet utilisation and end-to-end transport coordination.</p>
       </div>
-      <div class="svc-grid-cards">
-        <article class="svc-card-item">
-          <span class="svc-card-num">01 / Core Service</span>
-          <h4>Loaded Container &amp; Export Commodity Haulage</h4>
-          <p>Transportation of loaded containers from ports to inland destinations, and export commodities for customers from farms, warehouses and processing centres to ports or designated loading points, subject to availability and booking.</p>
-          <ul>
-            <li>Loaded container transportation</li>
-            <li>Customer-requested export commodity haulage</li>
-            <li>Bulk and containerised commodities</li>
-            <li>Export cargo collection and port delivery</li>
-          </ul>
-        </article>
 
-        <article class="svc-card-item">
-          <span class="svc-card-num">02 / Core Service</span>
-          <h4>Container Haulage &amp; Road Freight</h4>
-          <p>Road transportation of loaded and empty containers, general freight and commercial cargo across designated routes.</p>
-          <ul>
-            <li>Full-container transportation</li>
-            <li>Inland container movements</li>
-            <li>Empty container returns</li>
-            <li>Warehouse and terminal deliveries</li>
-          </ul>
-        </article>
+      <div class="svc-accordion-list">
+        <!-- 1. Loaded Container & Export Commodity Haulage -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">Loaded Container &amp; Export Commodity Haulage</div>
+              <p class="svc-accordion-desc">Transportation of loaded containers from ports to inland destinations, and export commodities for customers from farms, warehouses and processing centres to ports or designated loading points, subject to availability and booking.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Loaded container transportation</li>
+                <li>Customer-requested export commodity haulage</li>
+                <li>Bulk and containerised commodities</li>
+                <li>Export cargo collection and port delivery</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-        <article class="svc-card-item">
-          <span class="svc-card-num">03 / Management</span>
-          <h4>Fleet &amp; Transport Management</h4>
-          <p>Management of our company-owned fleet, including transport planning, vehicle allocation, maintenance oversight, dispatch and delivery coordination.</p>
-          <ul>
-            <li>Company-owned truck allocation</li>
-            <li>Driver and trip coordination</li>
-            <li>Fleet scheduling and preventive maintenance</li>
-            <li>Transport performance monitoring</li>
-          </ul>
-        </article>
+        <!-- 2. Container Haulage & Road Freight -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">Container Haulage &amp; Road Freight</div>
+              <p class="svc-accordion-desc">Road transportation of loaded and empty containers, general freight and commercial cargo across designated routes.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Full-container transportation</li>
+                <li>Inland container movements</li>
+                <li>Empty container returns</li>
+                <li>Warehouse and terminal deliveries</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-        <article class="svc-card-item">
-          <span class="svc-card-num">04 / Logistics</span>
-          <h4>Port &amp; Inland Logistics</h4>
-          <p>Coordinating road freight activities linked to seaports, terminals, inland depots and commercial destinations.</p>
-          <ul>
-            <li>Terminal pickup coordination</li>
-            <li>Port-to-inland deliveries</li>
-            <li>Container positioning and returns</li>
-            <li>Coordination with forwarding agents</li>
-          </ul>
-        </article>
+        <!-- 3. Fleet & Transport Management -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">Fleet &amp; Transport Management</div>
+              <p class="svc-accordion-desc">Management of our company-owned fleet, including transport planning, vehicle allocation, maintenance oversight, dispatch and delivery coordination.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Company-owned truck allocation</li>
+                <li>Driver and trip coordination</li>
+                <li>Fleet scheduling and preventive maintenance</li>
+                <li>Transport performance monitoring</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-        <article class="svc-card-item">
-          <span class="svc-card-num">05 / Heavy Cargo</span>
-          <h4>Project &amp; Specialised Cargo Logistics</h4>
-          <p>Transport planning and arrangements for heavy machinery, construction materials, industrial equipment and project cargo, subject to equipment suitability and route requirements.</p>
-          <ul>
-            <li>Equipment movement planning</li>
-            <li>Flatbed transport coordination</li>
-            <li>Project material deliveries</li>
-          </ul>
-        </article>
+        <!-- 4. Port & Inland Logistics -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">Port &amp; Inland Logistics</div>
+              <p class="svc-accordion-desc">Coordinating road freight activities linked to seaports, terminals, inland depots and commercial destinations.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Terminal pickup coordination</li>
+                <li>Port-to-inland deliveries</li>
+                <li>Container positioning and returns</li>
+                <li>Coordination with forwarding agents</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-        <article class="svc-card-item">
-          <span class="svc-card-num">06 / Fleet Assets</span>
-          <h4>Company-Owned Fleet Operations</h4>
-          <p>Direct operation and management of our own trucks to provide dependable, accountable road freight services.</p>
-          <ul>
-            <li>Company-owned fleet deployment</li>
-            <li>Driver and dispatch supervision</li>
-            <li>Vehicle maintenance coordination</li>
-            <li>End-to-end trip oversight</li>
-          </ul>
-        </article>
+        <!-- 5. Project & Specialised Cargo Logistics -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">Project &amp; Specialised Cargo Logistics</div>
+              <p class="svc-accordion-desc">Transport planning and arrangements for heavy machinery, construction materials, industrial equipment and project cargo, subject to equipment suitability and route requirements.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Equipment movement planning</li>
+                <li>Flatbed transport coordination</li>
+                <li>Project material deliveries</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Warehousing & Distribution Coordination -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">Warehousing &amp; Distribution Coordination</div>
+              <p class="svc-accordion-desc">Arrangements for cargo storage, consolidation, onward distribution and warehouse-to-destination movements through available facilities and partners.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Storage coordination</li>
+                <li>Cargo distribution planning</li>
+                <li>Warehouse dispatch logistics</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Company-Owned Fleet Operations -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">Company-Owned Fleet Operations</div>
+              <p class="svc-accordion-desc">Direct operation and management of our own trucks to provide dependable, accountable road freight services across Nigeria.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Company-owned fleet deployment</li>
+                <li>Driver and dispatch supervision</li>
+                <li>Vehicle maintenance coordination</li>
+                <li>End-to-end trip oversight</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Flexible Backhaul Opportunities Banner -->
-    <div class="backhaul-banner reveal">
-      <div>
-        <div class="tag" style="background:rgba(255,255,255,0.18);color:#fff;border-color:transparent;margin-bottom:12px">Flexible Backhaul Opportunities</div>
-        <h3>More Than Empty Container Returns</h3>
-        <p>Where customer demand and truck availability align, we transport export commodities and other approved cargo on suitable routes, creating productive return journeys alongside our regular container haulage operations.</p>
+    <!-- Division 2: General Trading, Contracting & Project Services -->
+    <div class="services-division-block" style="margin-top:44px">
+      <div class="division-title-bar">
+        <h3 class="division-main-title">General Trading, Contracting &amp; Project Services</h3>
+        <p class="division-subtitle">Beyond haulage, BHB International undertakes commercial supply, project-based contracts and community infrastructure assignments tailored to client requirements.</p>
       </div>
-      <div>
-        <a class="btn white" href="contact.html">Enquire About Cargo Haulage</a>
+
+      <div class="svc-accordion-list">
+        <!-- 1. General Trading & Merchandise -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">General Trading &amp; Merchandise</div>
+              <p class="svc-accordion-desc">Buying, selling and supplying general merchandise, consumables, equipment and other goods for commercial and institutional customers.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Commercial merchandise supply</li>
+                <li>Consumables and equipment procurement</li>
+                <li>Institutional supply contracts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Truck Heads & Flatbed Trailers -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">Truck Heads &amp; Flatbed Trailers</div>
+              <p class="svc-accordion-desc">Importation, purchase and sale of truck tractor heads, flatbed trailers and related transport equipment. This trading activity is distinct from our company-owned haulage fleet.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Direct importation of truck tractor heads</li>
+                <li>Flatbed trailer supply and sales</li>
+                <li>Heavy-duty commercial vehicle procurement</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. CSR & Empowerment Programmes -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">CSR &amp; Empowerment Programmes</div>
+              <p class="svc-accordion-desc">Contract-based planning, procurement, coordination and implementation of skills acquisition, livelihood support and community empowerment programmes for corporate and institutional clients.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Vocational equipment procurement</li>
+                <li>Community empowerment delivery</li>
+                <li>Socio-economic impact initiatives</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Solar Street Lighting -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">Solar Street Lighting</div>
+              <p class="svc-accordion-desc">Project coordination, supply and installation arrangements for solar-powered street lighting and related community electrification initiatives.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Solar-powered street lighting supply</li>
+                <li>Installation planning and coordination</li>
+                <li>Community lighting infrastructure</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. School & Facility Renovation -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">School &amp; Facility Renovation</div>
+              <p class="svc-accordion-desc">Renovation, rehabilitation and upgrading of schools, classrooms and community facilities, including civil and related improvement works.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Educational facility rehabilitation</li>
+                <li>Classroom upgrade and civil repairs</li>
+                <li>Community building renovations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Boreholes & Water Treatment -->
+        <div class="svc-accordion-item">
+          <button type="button" class="svc-accordion-header" aria-expanded="false">
+            <div class="svc-accordion-title-wrap">
+              <div class="svc-accordion-title">Boreholes &amp; Water Treatment</div>
+              <p class="svc-accordion-desc">Borehole development, water supply infrastructure and water treatment project coordination to improve access to dependable water services.</p>
+            </div>
+            <span class="svc-accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </span>
+          </button>
+          <div class="svc-accordion-content" hidden>
+            <div class="svc-accordion-inner">
+              <div class="svc-scope-heading">Key Capabilities &amp; Scope</div>
+              <ul class="svc-scope-list">
+                <li>Borehole drilling and pump installation</li>
+                <li>Water reticulation and storage setups</li>
+                <li>Community water facility delivery</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Division 2 -->
-    <div class="division-block">
-      <div class="division-head">
-        <span class="tag">Division 02</span>
-        <h3>General Trading, Contracting &amp; Project Services</h3>
-        <p>Beyond haulage, BHB International undertakes commercial supply, project-based contracts and community infrastructure assignments tailored to client requirements.</p>
-      </div>
-      <div class="svc-grid-cards">
-        <article class="svc-card-item">
-          <span class="svc-card-num">01 / Trading</span>
-          <h4>General Trading &amp; Merchandise</h4>
-          <p>Buying, selling and supplying general merchandise, consumables, equipment and other goods for commercial and institutional customers.</p>
-          <ul>
-            <li>Commercial merchandise supply</li>
-            <li>Consumables and equipment procurement</li>
-            <li>Institutional supply contracts</li>
-          </ul>
-        </article>
-
-        <article class="svc-card-item">
-          <span class="svc-card-num">02 / Equipment</span>
-          <h4>Truck Heads &amp; Flatbed Trailers</h4>
-          <p>Importation, purchase and sale of truck tractor heads, flatbed trailers and related transport equipment. This trading activity is distinct from our company-owned haulage fleet.</p>
-          <ul>
-            <li>Direct importation of truck tractor heads</li>
-            <li>Flatbed trailer supply and sales</li>
-            <li>Heavy-duty commercial vehicle procurement</li>
-          </ul>
-        </article>
-
-        <article class="svc-card-item">
-          <span class="svc-card-num">03 / Community</span>
-          <h4>CSR &amp; Empowerment Programmes</h4>
-          <p>Contract-based planning, procurement, coordination and implementation of skills acquisition, livelihood support and community empowerment programmes for corporate and institutional clients.</p>
-          <ul>
-            <li>Vocational equipment procurement</li>
-            <li>Community empowerment delivery</li>
-            <li>Socio-economic impact initiatives</li>
-          </ul>
-        </article>
-
-        <article class="svc-card-item">
-          <span class="svc-card-num">04 / Energy</span>
-          <h4>Solar Street Lighting</h4>
-          <p>Project coordination, supply and installation arrangements for solar-powered street lighting and related community electrification initiatives.</p>
-          <ul>
-            <li>Solar-powered street lighting supply</li>
-            <li>Installation planning and coordination</li>
-            <li>Community lighting infrastructure</li>
-          </ul>
-        </article>
-
-        <article class="svc-card-item">
-          <span class="svc-card-num">05 / Facilities</span>
-          <h4>School &amp; Facility Renovation</h4>
-          <p>Renovation, rehabilitation and upgrading of schools, classrooms and community facilities, including civil and related improvement works.</p>
-          <ul>
-            <li>Educational facility rehabilitation</li>
-            <li>Classroom upgrade and civil repairs</li>
-            <li>Community building renovations</li>
-          </ul>
-        </article>
-
-        <article class="svc-card-item">
-          <span class="svc-card-num">06 / Water</span>
-          <h4>Boreholes &amp; Water Treatment</h4>
-          <p>Borehole development, water supply infrastructure and water treatment project coordination to improve access to dependable water services.</p>
-          <ul>
-            <li>Borehole drilling and pump installation</li>
-            <li>Water reticulation and storage setups</li>
-            <li>Community water facility delivery</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-    
-    <div style="text-align:center;margin-top:48px">
+    <div style="text-align:center;margin-top:44px">
       <a class="btn blue" href="services.html">View Detailed Services Specification</a>
       <a class="btn line" href="contact.html" style="margin-left:14px">Request a Quotation</a>
     </div>
   </div>
 </section>
 
-<!-- Operating Approach Section -->
-<section id="approach" class="reveal">
+<!-- Operating Approach -->
+<section id="approach" class="white reveal">
   <div class="wrap">
     <div class="head">
-      <div class="tag" style="margin-bottom:10px">Our Operating Approach</div>
-      <h2 class="h2">Structured Haulage, From Enquiry to Delivery</h2>
+      <h2 class="h2"><span class="text-brand-dark">Structured Haulage,</span> <span class="text-brand-blue">From Enquiry to Delivery</span></h2>
       <p class="sub">Every transport engagement starts with understanding the cargo, route, timing and handling requirements.</p>
     </div>
-    <div class="steps reveal-stagger">
-      <div class="step">
-        <b>STEP 01</b>
-        <h3>Transport Enquiry</h3>
+
+    <div class="steps-4grid reveal-stagger">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Transport Inquiry</h3>
         <p>Share your cargo details, loading location, destination and required delivery window.</p>
       </div>
-      <div class="step">
-        <b>STEP 02</b>
-        <h3>Planning &amp; Quotation</h3>
+
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Planning and Quotation</h3>
         <p>We assess route requirements, equipment suitability, availability and commercial terms.</p>
       </div>
-      <div class="step">
-        <b>STEP 03</b>
-        <h3>Dispatch &amp; Coordination</h3>
+
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Dispatch and Coordination</h3>
         <p>Truck allocation, driver instructions and cargo movement are coordinated against the agreed scope.</p>
       </div>
-      <div class="step">
-        <b>STEP 04</b>
-        <h3>Delivery &amp; Close-Out</h3>
+
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3>Delivery and Close Out</h3>
         <p>Delivery confirmation, applicable container returns and transport documentation are coordinated.</p>
       </div>
     </div>
+
     <div style="margin-top:36px;text-align:center">
-      <a class="btn line sm" href="approach.html">Learn more about our methodology</a>
+      <a class="btn line sm" href="approach.html">Learn More About Our Methodology</a>
     </div>
   </div>
 </section>
 
-<!-- Why Choose BHB Section -->
+<!-- Why Choose BHB International -->
 <section id="why-bhb" class="tint reveal">
   <div class="wrap">
     <div class="head">
-      <div class="tag" style="margin-bottom:10px">Our Advantage</div>
-      <h2 class="h2">Why Choose BHB International?</h2>
+      <h2 class="h2"><span class="text-brand-dark">Why Choose</span> <span class="text-brand-blue">BHB International?</span></h2>
       <p class="sub">We bring together direct control of company-owned haulage assets with commercial procurement and project coordination capabilities.</p>
     </div>
-    <div class="values-4grid reveal-stagger">
+
+    <div class="why-4grid reveal-stagger">
       <div class="val-card">
         <h4>Company-Owned Fleet</h4>
         <p>Our own trucks support direct oversight of dispatch, drivers, maintenance planning and trip execution.</p>
       </div>
+
       <div class="val-card">
         <h4>Integrated Capabilities</h4>
         <p>Complementary haulage, general trading, procurement, contracting and project services under one company.</p>
       </div>
+
       <div class="val-card">
         <h4>Practical Project Delivery</h4>
         <p>Structured project coordination, procurement and collaboration with qualified specialists where required.</p>
       </div>
+
       <div class="val-card">
         <h4>Client-Centred Execution</h4>
         <p>Services planned around agreed scope, operational requirements, safety considerations and clear communication.</p>
@@ -372,62 +546,99 @@
   </div>
 </section>
 
-<!-- Leadership Section -->
-<section id="leadership" class="reveal">
+<!-- Executive Leadership Profile with Supplied Portrait Photograph -->
+<section id="leadership" class="white reveal">
   <div class="wrap">
-    <div class="lead-grid">
-      <aside class="profile">
-        <div class="lead-monogram" style="margin:0 auto 18px;width:80px;height:80px;font-size:28px">ZSH</div>
-        <div class="kicker" style="color:var(--sky)">Executive Leadership</div>
+    <div class="head">
+      <h2 class="h2"><span class="text-brand-dark">Meet Our</span> <span class="text-brand-blue">Founder &amp; CEO</span></h2>
+      <p class="sub">Strategic leadership and operational governance driving BHB International Ltd.</p>
+    </div>
+
+    <div class="lead-grid-balanced">
+      <aside class="profile-card">
+        <div class="ceo-photo-container">
+          <img src="images/ceo-new.jpg" alt="Zango Salihu Habibu, Founder &amp; Chief Executive Officer" width="320" height="400">
+        </div>
         <h3>Zango Salihu Habibu</h3>
         <div class="role">Founder &amp; Chief Executive Officer</div>
         <blockquote>“Sustainable business success is built on integrity, professionalism, effective resource management and long-term relationships founded on trust and mutual value.”</blockquote>
-        <dl>
-          <dt>Company</dt><dd>BHB International Ltd</dd>
-          <dt>Key sectors</dt><dd>Haulage, Fleet Operations, Trading, Contracting</dd>
-          <dt>Operational focus</dt><dd>Company-Owned Assets &amp; Strategic Delivery</dd>
-        </dl>
       </aside>
-      <div class="bio">
-        <div class="tag" style="margin-bottom:10px">Executive Profile</div>
-        <h2 class="h2" style="margin-bottom:20px">Meet Our Founder &amp; CEO</h2>
+
+      <div class="bio-content">
+        <h2>Executive Profile</h2>
         <p>Zango Salihu Habibu is the Founder and Chief Executive Officer of BHB International Ltd, a diversified Nigerian company specialising in integrated haulage and logistics management, general trading, procurement, contracting and project services.</p>
         <p>An entrepreneur and business executive with professional experience spanning the oil and gas, financial services, transportation, logistics and contracting sectors, he brings a multidisciplinary approach to business leadership, operational management and commercial development.</p>
-        <p>Since establishing BHB International Ltd in 2016, he has led the company's development and diversification, overseeing its company-owned haulage fleet, container transportation operations, freight logistics, commercial procurement and trading activities.</p>
-        <p>His leadership approach emphasises operational efficiency, accountability, strategic partnerships and sustainable business growth. Under his direction, BHB International Ltd delivers reliable, value-driven solutions across Nigeria.</p>
+        <p>Before establishing BHB International Ltd in 2016, he held various professional positions in the oil and gas industry, gaining experience in petroleum trading and supply operations, marine logistics, demurrage management, insurance and claims administration, and commercial operations. His subsequent experience in the financial services sector further strengthened his capabilities in business operations, customer relationship management and commercial coordination.</p>
+        <p>Since establishing BHB International Ltd, he has led the company's development and diversification, overseeing its company-owned haulage fleet, container transportation operations, freight logistics, commercial procurement and trading activities.</p>
+        <p>His leadership approach emphasises operational efficiency, accountability, strategic partnerships and sustainable business growth across Nigeria.</p>
         <div style="margin-top:24px">
-          <a class="btn line sm" href="about.html#leadership">View full executive biography &amp; expertise</a>
+          <a class="btn line sm" href="about.html#leadership">View Full Leadership Background &amp; Expertise</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Health, Safety, Quality & Environment (HSQE) -->
+<!-- Redesigned Corporate HSQE Section -->
 <section id="hsqe" class="tint reveal">
   <div class="wrap">
-    <div class="hsqe-box">
-      <div class="tag" style="margin-bottom:10px">Our Commitment</div>
-      <h2 class="h2">Health, Safety, Quality &amp; Environment (HSQE)</h2>
-      <p style="color:var(--text);font-size:16px;line-height:1.7;margin-top:14px;max-width:85ch">
-        BHB International Ltd recognises the importance of health, safety, quality and environmental responsibility in transportation and project delivery. We are committed to promoting safe working practices, appropriate vehicle maintenance, operational risk awareness and compliance with applicable requirements. In project assignments, we emphasise responsible procurement, suitable technical expertise, effective supervision and quality-focused execution.
-      </p>
-      <div class="hsqe-grid">
-        <div class="hsqe-item">
+    <div class="hsqe-container">
+      <div class="hsqe-header">
+        <h2><span class="text-brand-dark">Health, Safety, Quality</span> <span class="text-brand-blue">&amp; Environment (HSQE)</span></h2>
+        <p class="hsqe-intro">
+          BHB International Ltd recognises the importance of health, safety, quality and environmental responsibility in transportation and project delivery. We are committed to promoting safe working practices, appropriate vehicle maintenance, operational risk awareness and compliance with applicable requirements. In project assignments, we emphasise responsible procurement, suitable technical expertise, effective supervision and quality-focused execution.
+        </p>
+      </div>
+
+      <div class="hsqe-blocks-grid">
+        <div class="hsqe-block">
+          <span class="hsqe-block-badge">Safety</span>
           <h4>Safe Working Practices</h4>
-          <p>Driver wellness, safe journey planning, cargo securing and roadside safety compliance.</p>
+          <p>Driver fatigue management, safe loading protocols, PPE compliance, and journey safety guidelines for road transit.</p>
         </div>
-        <div class="hsqe-item">
+
+        <div class="hsqe-block">
+          <span class="hsqe-block-badge">Maintenance</span>
           <h4>Fleet Roadworthiness</h4>
-          <p>Regular maintenance oversight, certified inspections and equipment reliability.</p>
+          <p>Preventive maintenance programmes, certified vehicle inspections, tyre integrity, and brake safety compliance.</p>
         </div>
-        <div class="hsqe-item">
+
+        <div class="hsqe-block">
+          <span class="hsqe-block-badge">Risk Control</span>
           <h4>Operational Risk Awareness</h4>
-          <p>Route risk assessments, weather monitoring and responsive dispatch protocols.</p>
+          <p>Route assessment, weather and transit condition monitoring, cargo security, and responsive dispatch management.</p>
         </div>
-        <div class="hsqe-item">
+
+        <div class="hsqe-block">
+          <span class="hsqe-block-badge">Quality</span>
           <h4>Quality &amp; Supervision</h4>
-          <p>Disciplined execution, responsible procurement and verified close-out documentation.</p>
+          <p>Disciplined execution, responsible procurement, qualified project coordination, and verified delivery documentation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Institutional Partnerships (Picture Removed, Authoritative Content Rebalanced) -->
+<section class="dark-section reveal" style="padding:78px 0">
+  <div class="wrap">
+    <div class="partnership-wrap">
+      <div>
+        <h2 style="font-size:clamp(28px,3.4vw,40px);margin-bottom:18px">Strong Institutional Relationships</h2>
+        <p style="font-size:16.5px;line-height:1.75;margin-bottom:28px">Large-scale transportation, commercial trading and community contracting depend on disciplined relationships and effective stakeholder engagement. We work with public institutions, port terminal operators, trade associations and corporate organisations with high ethical integrity.</p>
+        <a class="btn white sm" href="partnerships.html">Explore Our Partnerships</a>
+      </div>
+
+      <div class="dark-card-box">
+        <h3 style="color:#ffffff;font-size:20px;margin-bottom:8px">Collaboration Principles</h3>
+        <p style="font-size:14.5px;color:#d8e4f6;margin:0">Our operational and commercial relationships are grounded in mutual value and strict operational standards.</p>
+        <div class="partnership-checks-grid">
+          <div class="p-check-item">Professional representation</div>
+          <div class="p-check-item">Regulatory compliance</div>
+          <div class="p-check-item">Pricing transparency</div>
+          <div class="p-check-item">Continuous communication</div>
+          <div class="p-check-item">Multi-stakeholder alignment</div>
+          <div class="p-check-item">Sustainable commercial trust</div>
         </div>
       </div>
     </div>
@@ -435,32 +646,32 @@
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="contact reveal">
+<section id="contact" class="white reveal">
   <div class="wrap">
     <div class="cgrid">
       <div>
-        <div class="kicker">Contact</div>
-        <h2 class="h2">Let's coordinate your next shipment</h2>
-        <p class="sub">Discuss loaded container haulage, export commodity transportation, container freight, fleet management, equipment procurement or project contracting with BHB International Ltd.</p>
+        <h2 class="h2"><span class="text-brand-dark">Let's Coordinate</span> <span class="text-brand-blue">Your Next Shipment</span></h2>
+        <p class="sub" style="margin-top:12px">Discuss loaded container haulage, export commodity transportation, container freight, fleet management, equipment procurement or project contracting with BHB International Ltd.</p>
         <ul class="clist">
-          <li><b>Office</b><span>66/67, Sulaiman Crescent, Nasarawa,<br>Kano State, Nigeria.</span></li>
-          <li><b>Email</b><a href="mailto:info@bhbinternational.com">info@bhbinternational.com</a></li>
+          <li><b>Office Address</b><span>66/67, Sulaiman Crescent, Nasarawa, Kano State, Nigeria.</span></li>
+          <li><b>Official Email</b><a href="mailto:info@bhbinternational.com">info@bhbinternational.com</a></li>
           <li><b>Telephone</b><a href="tel:+2342014545878">+234 201 454 5878</a></li>
           <li><b>Website</b><span>www.bhbinternational.com</span></li>
         </ul>
       </div>
+
       <form class="enq" id="enq" novalidate>
-        <h3>Request a quotation / Business enquiry</h3>
-        <p class="note">Tell us about your cargo, equipment need or project assignment. Our team will review and respond promptly.</p>
+        <h3>Request a Quotation / Business Enquiry</h3>
+        <p class="note">Provide your cargo or project details. Our dispatch team will evaluate and respond promptly.</p>
         <div class="f2">
-          <div class="fld"><label for="n">Full name</label><input id="n" name="name" autocomplete="name" required></div>
-          <div class="fld"><label for="o">Organisation</label><input id="o" name="org" autocomplete="organization"></div>
+          <div class="fld"><label for="n">Full name *</label><input id="n" name="name" autocomplete="name" required placeholder="e.g. Ibrahim Ahmed"></div>
+          <div class="fld"><label for="o">Organisation</label><input id="o" name="org" autocomplete="organization" placeholder="e.g. Apex Trading Ltd"></div>
         </div>
         <div class="f2">
-          <div class="fld"><label for="e">Email</label><input id="e" type="email" name="email" autocomplete="email" required></div>
-          <div class="fld"><label for="p">Phone</label><input id="p" type="tel" name="phone" autocomplete="tel"></div>
+          <div class="fld"><label for="e">Email *</label><input id="e" type="email" name="email" autocomplete="email" required placeholder="name@company.com"></div>
+          <div class="fld"><label for="p">Phone</label><input id="p" type="tel" name="phone" autocomplete="tel" placeholder="+234 ..."></div>
         </div>
-        <div class="fld"><label for="t">Service required</label>
+        <div class="fld"><label for="t">Service requirement</label>
           <select id="t" name="type">
             <option>Loaded Container &amp; Export Commodity Haulage</option>
             <option>Container Haulage &amp; Road Freight</option>
@@ -468,17 +679,17 @@
             <option>Port &amp; Inland Logistics</option>
             <option>Project &amp; Specialised Cargo Logistics</option>
             <option>Warehousing &amp; Distribution Coordination</option>
-            <option>Truck Heads &amp; Flatbed Trailers (Import/Sale)</option>
+            <option>Truck Heads &amp; Flatbed Trailers (Sales/Import)</option>
             <option>General Trading &amp; Merchandise Supply</option>
             <option>CSR &amp; Empowerment Programmes</option>
             <option>Solar Street Lighting</option>
             <option>School &amp; Facility Renovation</option>
             <option>Boreholes &amp; Water Treatment</option>
-            <option>Other / General Enquiry</option>
+            <option>General Logistics / Other</option>
           </select>
         </div>
-        <div class="fld"><label for="m">Cargo details / Project description</label><textarea id="m" name="message" placeholder="Include loading point, destination, cargo type/volume or project scope..." required></textarea></div>
-        <button class="btn blue" type="submit">Submit Enquiry</button>
+        <div class="fld"><label for="m">Cargo / Project details *</label><textarea id="m" name="message" placeholder="Please specify loading point, delivery destination, container size or commodity type, preferred timing, etc." required></textarea></div>
+        <button class="btn blue" type="submit" style="width:100%">Submit Enquiry</button>
         <div class="status" id="status" role="status" aria-live="polite"></div>
       </form>
     </div>
@@ -490,7 +701,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="brand-col">
-        <img data-img="logo" alt="BHB International Ltd" width="240" height="82">
+        <img src="images/logo-badge.png" alt="BHB International Ltd" width="260" height="112" class="footer-logo-img">
         <p>Integrated Haulage, Logistics, General Trading &amp; Project Solutions. Company-owned fleet transportation, commercial procurement, and contract-based infrastructure delivery across Nigeria.</p>
       </div>
       <div>
