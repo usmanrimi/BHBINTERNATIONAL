@@ -24,9 +24,10 @@ a{color:var(--blue);text-decoration:none}
 /* Main Navigation */
 header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s ease}
 .nav.scrolled{box-shadow:var(--shadow-sm)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:80px;gap:20px}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;gap:20px}
 .brand{display:flex;align-items:center}
-.brand img{height:46px;width:auto}
+.brand img{height:54px;width:auto;max-width:220px;transition:transform .2s ease}
+.brand:hover img{transform:scale(1.02)}
 .menu{display:flex;align-items:center;gap:24px;list-style:none;margin:0;padding:0;font-weight:600;font-size:15px}
 .menu a{text-decoration:none;color:var(--navy);padding:8px 0;border-bottom:3px solid transparent;transition:color .2s,border-color .2s}
 .menu a:hover{color:var(--blue);border-color:var(--blue2)}
@@ -177,31 +178,6 @@ section{padding:92px 0;position:relative}
   .scope,.panel:not(.hasimg) .scope{grid-template-columns:1fr}
 }
 
-/* Gallery & Lightbox */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:16px}
-.gal button{all:unset;cursor:zoom-in;position:relative;overflow:hidden;border-radius:24px;display:block;box-shadow:var(--shadow-sm);transition:all .3s ease}
-.gal button:focus-visible{outline:3px solid var(--blue2);outline-offset:3px}
-.gal button:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.gal button:hover img{transform:scale(1.06)}
-.gal span{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 14px;color:#fff;font-weight:600;font-size:14.5px;background:linear-gradient(0deg,rgba(18,26,48,.92),transparent);line-height:1.3}
-.gal .w2{grid-column:span 2}.gal .h2r{grid-row:span 2}
-@media(max-width:900px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:180px}}
-@media(max-width:540px){.gal{grid-template-columns:1fr;grid-auto-rows:220px}.gal .w2{grid-column:span 1}.gal .h2r{grid-row:span 1}}
-
-.lb{position:fixed;inset:0;background:rgba(18,26,48,.96);z-index:90;display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(6px)}
-.lb.open{display:flex}
-.lb figure{margin:0;max-width:min(1100px,100%);text-align:center;color:#fff}
-.lb img{max-height:78vh;margin:0 auto;border-radius:18px;box-shadow:0 30px 60px rgba(0,0,0,.6)}
-.lb figcaption{margin-top:16px;font-weight:600;font-size:17px;color:#e1ebfb}
-.lb button{position:absolute;background:#fff;color:var(--navy);border:0;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;font-weight:700;display:grid;place-items:center;transition:background .2s,transform .2s;box-shadow:0 6px 18px rgba(0,0,0,.3)}
-.lb button:hover{background:var(--sky);transform:scale(1.08)}
-.lb .x{top:max(20px,env(safe-area-inset-top,0px));right:24px}
-.lb .p{left:24px;top:50%;transform:translateY(-50%)}
-.lb .p:hover{transform:translateY(-50%) scale(1.08)}
-.lb .n{right:24px;top:50%;transform:translateY(-50%)}
-.lb .n:hover{transform:translateY(-50%) scale(1.08)}
-
 /* Approach Process Timeline */
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;position:relative;counter-reset:s;margin-top:16px}
 .steps::before{content:"";position:absolute;left:30px;right:30px;top:32px;height:4px;background:var(--line);border-radius:4px;z-index:0}
@@ -312,7 +288,7 @@ textarea{min-height:130px;resize:vertical}
 /* Refined Corporate Footer */
 footer{background:var(--navy);color:#dbe4f6;padding:64px 0 36px;border-top:1px solid rgba(255,255,255,.1)}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:48px;align-items:start}
-footer .brand-col img{height:48px;width:auto;margin-bottom:16px;background:#fff;padding:6px 12px;border-radius:10px}
+footer .brand-col img{height:62px;width:auto;margin-bottom:18px;background:#fff;padding:6px 14px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,0.18)}
 footer .brand-col p{color:#c3d1ee;font-size:15px;line-height:1.65;margin:0;max-width:44ch}
 footer h4{color:#fff;font-size:17px;font-weight:800;margin-bottom:18px;letter-spacing:.02em;text-transform:uppercase}
 footer nav{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
@@ -364,3 +340,4 @@ footer nav a:hover{color:#fff;text-decoration:underline}
   *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
   .reveal,.reveal-stagger>*{opacity:1!important;transform:none!important}
 }
+@media(max-width:600px){.brand img{height:44px}footer .brand-col img{height:54px}}
