@@ -118,21 +118,14 @@ if (catTabs.length > 0) {
   });
 }
 
-// Expandable Service Accordions (Interactive and Accessible)
+// Accordion Expandable Functionality (Hover on Desktop, Tap/Click & Accessible on Mobile)
 document.querySelectorAll('.svc-accordion-header').forEach(header => {
   header.addEventListener('click', () => {
     const item = header.closest('.svc-accordion-item');
-    const content = item.querySelector('.svc-accordion-content');
     const isExpanded = header.getAttribute('aria-expanded') === 'true';
 
-    header.setAttribute('aria-expanded', !isExpanded);
-    if (!isExpanded) {
-      item.classList.add('active');
-      content.removeAttribute('hidden');
-    } else {
-      item.classList.remove('active');
-      content.setAttribute('hidden', '');
-    }
+    header.setAttribute('aria-expanded', String(!isExpanded));
+    item.classList.toggle('active', !isExpanded);
   });
 });
 

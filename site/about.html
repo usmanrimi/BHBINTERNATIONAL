@@ -17,9 +17,9 @@
 <body>
 <a class="sr skip" href="#main">Skip to content</a>
 
-<header class="nav">
+<header class="nav nav-blue">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="BHB International Ltd home">
+    <a class="brand" brand-pill href="index.html" aria-label="BHB International Ltd home">
       <img src="images/logo-clean.png" alt="BHB International Ltd logo" width="220" height="68">
     </a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
@@ -38,13 +38,12 @@
 
 <main id="main">
 <!-- Page Hero -->
-<div class="hero page-hero">
+<div class="hero page-hero about-hero">
   <div class="wrap">
-    <div class="fade-up">
-      <div class="hero-kicker-pill" style="color:var(--navy);background:var(--sky);border-color:var(--line)">About BHB International Ltd</div>
-      <h1>
-        <span class="text-brand-dark">One Logistics Partner.</span><br>
-        <span class="text-brand-blue">Coordinated Solutions.</span>
+    <div class="hero-content fade-up">
+      <h1 class="hero-title">
+        <span class="hero-hl-white">One Logistics Partner.</span><br>
+        <span class="hero-hl-blue">Coordinated Solutions.</span>
       </h1>
       <p class="lead">A Nigerian company with a core focus on integrated haulage and logistics management through its company-owned fleet, complemented by commercial trading, equipment imports and infrastructure project execution.</p>
     </div>
@@ -75,16 +74,17 @@
 <!-- Vision, Mission & Core Values (More Colourful & Distinct with Brand Accents) -->
 <section class="tint reveal">
   <div class="wrap">
-    <div class="vm">
-      <div class="v">
-        <span class="vm-tag vm-tag-vision">Our Vision</span>
-        <h3>Strategic Direction</h3>
-        <p>To become a leading and trusted provider of integrated logistics, trading and project solutions, recognised for operational excellence, reliability, innovation and sustainable value creation across Nigeria and beyond.</p>
+    <div class="mv-corporate-grid">
+      <div class="mv-col">
+        <div class="mv-kicker">Our Vision</div>
+        <h3 class="mv-title">Strategic Direction</h3>
+        <p class="mv-desc">To become a leading and trusted provider of integrated logistics, trading and project solutions, recognised for operational excellence, reliability, innovation and sustainable value creation across Nigeria and beyond.</p>
       </div>
-      <div class="m">
-        <span class="vm-tag vm-tag-mission">Our Mission</span>
-        <h3>Operational Purpose</h3>
-        <p>To deliver dependable transportation, quality procurement and project management services that enable our clients to achieve their operational goals efficiently, safely and sustainably.</p>
+      <div class="mv-divider-vertical" aria-hidden="true"></div>
+      <div class="mv-col">
+        <div class="mv-kicker">Our Mission</div>
+        <h3 class="mv-title">Operational Purpose</h3>
+        <p class="mv-desc">To deliver dependable transportation, quality procurement and project management services that enable our clients to achieve their operational goals efficiently, safely and sustainably.</p>
       </div>
     </div>
 
@@ -176,9 +176,14 @@
         <p>Through BHB International Ltd, he has been involved in various project-related activities, including marine and vessel operations, towage and mooring coordination, civil works, building renovations, solar street lighting, water infrastructure and community empowerment initiatives.</p>
         <p>His leadership approach emphasises operational efficiency, accountability, strategic partnerships and sustainable business growth. He remains committed to strengthening BHB International Ltd's operational capabilities, expanding commercial opportunities and delivering reliable, value-driven solutions to clients across multiple sectors.</p>
 
-        <h3 class="expertise-title">Areas of Professional Expertise</h3>
-        <div class="expertise-grid">
-          <div class="exp-item">Corporate Leadership &amp; Business Development</div>
+        </div>
+    </div>
+
+    <!-- Balanced Areas of Professional Expertise Showcase (Zero Empty Void) -->
+    <div class="expertise-showcase reveal">
+      <h3 class="expertise-showcase-title">Areas of Professional Expertise</h3>
+      <div class="expertise-grid">
+        <div class="exp-item">Corporate Leadership &amp; Business Development</div>
           <div class="exp-item">Integrated Haulage &amp; Fleet Management</div>
           <div class="exp-item">Transport Operations &amp; Logistics Coordination</div>
           <div class="exp-item">Petroleum Trading &amp; Supply Operations</div>
@@ -187,9 +192,9 @@
           <div class="exp-item">Contract Management &amp; Project Execution</div>
           <div class="exp-item">Infrastructure Development &amp; Technical Coordination</div>
           <div class="exp-item">Strategic Partnerships &amp; Stakeholder Engagement</div>
-          <div class="exp-item">CSR &amp; Community Development Projects</div>
-        </div>
+          <div class="exp-item">CSR &amp; Community Development Projects
       </div>
+    </div>
     </div>
   </div>
 </section>
