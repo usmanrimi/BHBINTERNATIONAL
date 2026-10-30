@@ -183,12 +183,27 @@ header.nav.nav-blue .cta-d .btn.blue:hover {
 }
 @media (min-width: 1041px) {
   header.nav.nav-blue .menu a {
+    position: relative;
     color: #ffffff;
     font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
   }
-  header.nav.nav-blue .menu a:hover,
+  header.nav.nav-blue .menu a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
   header.nav.nav-blue .menu a.active {
-    color: #8ebbfa;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.22);
+    font-weight: 700;
+    box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.35);
   }
 }
 @media (max-width: 1040px) {
@@ -247,23 +262,33 @@ header.nav.nav-blue .cta-d .btn.blue:hover {
   font-size: 15.5px;
 }
 
-.menu a {
+/* Modern Interactive Navigation Links (No Underlines, Click-Only Navigation) */
+header.nav .menu a {
+  position: relative;
   text-decoration: none;
   color: #000000;
-  padding: 8px 0;
-  border-bottom: 3px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
 }
 
-.menu a:hover {
-  color: var(--blue);
-  border-color: var(--blue);
+header.nav .menu a:hover {
+  color: var(--navy);
+  background: rgba(35, 115, 252, 0.08);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(8, 40, 164, 0.06);
 }
 
-.menu a.active {
-  color: var(--blue);
-  border-color: var(--blue);
+header.nav .menu a.active {
+  color: var(--navy);
+  background: rgba(8, 40, 164, 0.1);
   font-weight: 700;
+  box-shadow: inset 0 0 0 1.5px rgba(8, 40, 164, 0.18);
 }
 
 .btn {
@@ -415,16 +440,89 @@ header.nav.nav-blue .cta-d .btn.blue:hover {
    ========================================================================== */
 .hero.home-hero {
   position: relative;
-  min-height: 640px;
+  min-height: 660px;
   display: flex;
   align-items: center;
-  background-image: linear-gradient(135deg, rgba(8, 40, 164, 0.88) 0%, rgba(4, 18, 72, 0.92) 100%), url('images/hero-port.jpg');
+  background-image: linear-gradient(135deg, rgba(8, 40, 164, 0.72) 0%, rgba(4, 18, 72, 0.82) 100%), url('images/hero-port.jpg');
   background-size: cover;
   background-position: center 35%;
   background-repeat: no-repeat;
   color: #fff;
-  padding: 88px 0 72px;
+  padding: 94px 0 76px;
   overflow: hidden;
+}
+
+/* Subtle Animated Ambient Glow in Hero */
+.hero.home-hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(35, 115, 252, 0.28) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  animation: heroGlowPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlowPulse {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.6; }
+  100% { transform: scale(1.15) translate(-30px, 20px); opacity: 0.9; }
+}
+
+/* Staggered text entrances */
+.home-hero .hero-title {
+  animation: heroTextSlide 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.home-hero .hero-desc {
+  animation: heroTextSlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+.home-hero .hero-btns {
+  animation: heroTextSlide 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+
+@keyframes heroTextSlide {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animated CTA Buttons with Subtle Shimmer */
+.hero-btns .btn.blue {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px -4px rgba(35, 115, 252, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-btns .btn.blue::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.hero-btns .btn.blue:hover::after {
+  left: 140%;
+}
+
+.hero-btns .btn.blue:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -4px rgba(8, 40, 164, 0.6);
 }
 
 .hero.page-hero {
@@ -511,18 +609,33 @@ header.nav.nav-blue .cta-d .btn.blue:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.facts-banner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  perspective: 1000px;
+}
+
 .fact-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius);
-  padding: 22px 20px;
-  transition: background 0.25s, transform 0.25s;
+  padding: 24px 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .fact-card:hover {
-  background: rgba(255, 255, 255, 0.14);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.20);
+  transform: translateY(-6px) scale(1.02);
+  border-color: #64b0ff;
+  box-shadow: 0 18px 38px rgba(35, 115, 252, 0.3);
 }
 
 .fact-card b {
@@ -593,23 +706,32 @@ section.white {
   align-items: center;
 }
 
+/* Global Image Styling with Consistent Subtle BHB-Blue Stroke */
 .photo-wrap {
+  border: 2px solid rgba(35, 115, 252, 0.28);
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  background: var(--sky);
+  box-shadow: 0 14px 34px -6px rgba(8, 40, 164, 0.14);
+  background: #ffffff;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-wrap:hover {
+  border-color: var(--blue);
+  box-shadow: 0 20px 44px -6px rgba(35, 115, 252, 0.25);
+  transform: translateY(-4px);
 }
 
 .photo-wrap img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
-  border-radius: var(--radius);
-  transition: transform 0.4s ease;
+  border-radius: calc(var(--radius) - 2px);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .photo-wrap:hover img {
-  transform: scale(1.02);
+  transform: scale(1.025);
 }
 
 .about-text h2 {
@@ -648,8 +770,7 @@ section.white {
 .vm .v {
   background: linear-gradient(145deg, #ffffff 0%, #eef5ff 100%);
   border: 1.5px solid #bdd5fc;
-  border-top: 5px solid var(--blue);
-  border-radius: var(--radius);
+    border-radius: var(--radius);
   padding: 38px 34px;
   box-shadow: 0 6px 20px -4px rgba(35, 115, 252, 0.12);
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
@@ -659,8 +780,7 @@ section.white {
 .vm .m {
   background: linear-gradient(145deg, #ffffff 0%, #edf1fa 100%);
   border: 1.5px solid #b8cbef;
-  border-top: 5px solid var(--navy);
-  border-radius: var(--radius);
+    border-radius: var(--radius);
   padding: 38px 34px;
   box-shadow: 0 6px 20px -4px rgba(8, 40, 164, 0.12);
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
@@ -738,21 +858,40 @@ section.white {
   gap: 24px;
 }
 
+.values-4grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  perspective: 1000px;
+}
+
+/* Core Values — Complete Rounded Animated Border (No Single-Edge Lines) */
 .val-card {
-  background: #ffffff;
-  border: 1px solid var(--line);
+  background: linear-gradient(145deg, #ffffff 0%, #f4f8fe 100%);
+  border: 1.5px solid #d6e4f8;
   border-radius: var(--radius);
   padding: 32px 26px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 6px 18px rgba(8, 40, 164, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.val-card:nth-child(even) {
+  background: linear-gradient(145deg, #ffffff 0%, #edf3fc 100%);
 }
 
 .val-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px -8px rgba(35, 115, 252, 0.22);
   border-color: var(--blue);
+}
+
+.val-card:hover h4::before {
+  transform: scale(1.2) rotate(15deg);
+  transition: transform 0.3s ease;
 }
 
 .val-card h4 {
@@ -1066,20 +1205,20 @@ section.white {
 }
 
 .step-card {
-  background: #ffffff;
-  border: 1px solid var(--line);
+  background: linear-gradient(145deg, #ffffff 0%, #f7faff 100%);
+  border: 1.5px solid #d6e4f8;
   border-radius: var(--radius);
   padding: 32px 24px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 16px rgba(8, 40, 164, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
 .step-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px -4px rgba(35, 115, 252, 0.2);
   border-color: var(--blue);
 }
 
@@ -1219,15 +1358,17 @@ section.white {
   top: 110px;
 }
 
+/* Founder Circular Frame — Lighter BHB Blue Stroke */
 .ceo-photo-container {
   width: 100%;
   aspect-ratio: 4/5;
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 12px 32px rgba(35, 115, 252, 0.28);
   margin-bottom: 20px;
-  padding: 5px;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  padding: 6px;
+  background: var(--blue); /* Lighter BHB Blue */
+  border: 3px solid rgba(160, 205, 255, 0.7);
 }
 
 .ceo-photo-container img {
@@ -1258,30 +1399,51 @@ section.white {
   margin: 6px 0 16px;
 }
 
+/* Sustainable Business Success — Distinctive Blue Corporate Section */
 .lead-quote-box {
-  background: #f7faff;
-  border: 1.5px solid #c7dcff;
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin: 16px 0 0;
+  position: relative;
+  background: linear-gradient(135deg, #0828A4 0%, #1042dc 100%);
+  border: 1.5px solid #3d88fd;
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin: 18px 0 0;
   text-align: left;
-  box-shadow: 0 2px 8px rgba(8, 40, 164, 0.04);
+  box-shadow: 0 8px 24px rgba(8, 40, 164, 0.22);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
-.lead-quote-box p {
-  font-style: italic;
-  font-size: 14.5px;
-  color: #000000;
-  line-height: 1.65;
-  margin: 0;
+
+.lead-quote-box::before {
+  content: "“";
+  position: absolute;
+  top: -14px;
+  right: 14px;
+  font-size: 76px;
+  font-family: Georgia, serif;
+  color: rgba(255, 255, 255, 0.14);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.lead-quote-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(8, 40, 164, 0.35);
+  border-color: #64b0ff;
 }
 
 .lead-quote-box p {
+  position: relative;
   font-style: italic;
-  font-size: 14px;
-  color: #000000;
-  line-height: 1.6;
+  font-size: 14.5px;
+  color: #ffffff; /* Crisp high contrast white */
+  line-height: 1.7;
   margin: 0;
+  font-weight: 500;
+  color: #ffffff !important;
 }
+
+
+
 
 .bio-content h2 {
   font-size: clamp(26px, 3vw, 36px);
@@ -1309,22 +1471,25 @@ section.white {
 }
 
 .exp-item {
-  background: var(--mist);
-  border: 1px solid var(--line);
+  background: #ffffff;
+  border: 1.5px solid #d4e3f8;
   border-radius: 12px;
-  padding: 12px 16px;
-  font-size: 14px;
+  padding: 14px 18px;
+  font-size: 14.5px;
   font-weight: 600;
-  color: #000000;
+  color: #041248;
   display: flex;
   align-items: center;
-  gap: 10px;
-  transition: border-color 0.2s, background 0.2s;
+  gap: 12px;
+  box-shadow: 0 3px 10px rgba(8, 40, 164, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .exp-item:hover {
   border-color: var(--blue);
-  background: var(--sky);
+  background: #ffffff;
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 12px 26px rgba(35, 115, 252, 0.16);
 }
 
 .exp-item::before {
@@ -1393,21 +1558,34 @@ section.white {
   margin-top: 32px;
 }
 
+/* HSQE Section — Attractive Blue Surface and Complete Rounded Cards */
+#hsqe {
+  background: linear-gradient(180deg, #edf4fe 0%, #f7faff 100%);
+}
+
+.hsqe-container {
+  background: #ffffff;
+  border: 1.5px solid #d4e3f8;
+  border-radius: var(--radius-lg);
+  padding: 52px 48px;
+  box-shadow: 0 12px 32px rgba(8, 40, 164, 0.06);
+}
+
 .hsqe-block {
-  background: var(--mist);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 26px 22px;
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  background: linear-gradient(145deg, #ffffff 0%, #f7faff 100%);
+  border: 1.5px solid #d6e4f8;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 16px rgba(8, 40, 164, 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
 }
 
 .hsqe-block:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px -4px rgba(35, 115, 252, 0.2);
   border-color: var(--blue);
-  background: #fff;
 }
 
 .hsqe-block-badge {
@@ -1677,7 +1855,7 @@ footer {
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  padding: 10px 18px;
+  padding: 10px 10px;
   border-radius: 14px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
   margin-bottom: 20px;
@@ -1709,22 +1887,99 @@ footer h4 {
   text-transform: uppercase;
 }
 
-footer nav {
+/* Reorganised Single Column Quick Links with Animated Indicators */
+.footer-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 24px;
+  grid-template-columns: 1.35fr 0.85fr 1.2fr;
+  gap: 48px;
+  align-items: start;
 }
 
-footer nav a {
-  color: #cdd9ef;
+footer nav, .footer-nav-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+footer nav a, .footer-nav-col a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #d0defa;
   text-decoration: none;
   font-weight: 600;
   font-size: 15px;
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+
+footer nav a::before, .footer-nav-col a::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #64b0ff;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+footer nav a:hover, .footer-nav-col a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+  text-decoration: none;
+}
+
+footer nav a:hover::before, .footer-nav-col a:hover::before {
+  transform: scale(1.6);
+  background: #ffffff;
+}
+
+/* Head Office Info Structured Presentation */
+.footer-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-contact li {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #e0ebfb;
+  font-size: 14.5px;
+  line-height: 1.55;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-contact li:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(100, 176, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.footer-contact b {
+  display: block;
+  color: #64b0ff;
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+
+.footer-contact a {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
   transition: color 0.2s;
 }
 
-footer nav a:hover {
-  color: #fff;
+.footer-contact a:hover {
+  color: #64b0ff;
   text-decoration: underline;
 }
 
@@ -1890,26 +2145,70 @@ footer nav a:hover {
 
 
 /* Corporate Mission & Vision Clean Layout */
+/* Strategic Mission & Vision — Colourful Complementary Blue Layout */
 .mv-corporate-grid {
   display: grid;
-  grid-template-columns: 1fr 1px 1fr;
-  gap: 48px;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
   align-items: stretch;
-  background: #ffffff;
+  background: linear-gradient(145deg, #f0f6ff 0%, #e2eeff 100%);
   padding: 44px 40px;
   border-radius: var(--radius-lg);
-  border: 1.5px solid #dbe7fa;
-  box-shadow: 0 4px 20px rgba(8, 40, 164, 0.05);
+  border: 1.5px solid #c7dcfa;
+  box-shadow: 0 10px 30px rgba(8, 40, 164, 0.08);
   margin-top: 40px;
 }
+
 .mv-divider-vertical {
-  background: linear-gradient(180deg, transparent, #cde0fa 15%, #cde0fa 85%, transparent);
-  width: 1px;
+  display: none;
 }
+
 .mv-col {
   display: flex;
   flex-direction: column;
+  border-radius: 18px;
+  padding: 34px 30px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* Vision Card: Crisp High-End White Surface with Blue Accent Border */
+.mv-col:first-child {
+  background: #ffffff;
+  border: 1.5px solid #cce0fa;
+  box-shadow: 0 6px 20px rgba(35, 115, 252, 0.08);
+}
+
+.mv-col:first-child:hover {
+  transform: translateY(-5px);
+  border-color: var(--blue);
+  box-shadow: 0 16px 36px rgba(35, 115, 252, 0.18);
+}
+
+/* Mission Card: Rich Brand Blue Gradient with High Contrast Text */
+.mv-col:last-child {
+  background: linear-gradient(145deg, #0828A4 0%, #0d3ecf 100%);
+  border: 1.5px solid #2373FC;
+  box-shadow: 0 8px 24px rgba(8, 40, 164, 0.16);
+}
+
+.mv-col:last-child:hover {
+  transform: translateY(-5px);
+  border-color: #64b0ff;
+  box-shadow: 0 18px 40px rgba(8, 40, 164, 0.32);
+}
+
+.mv-col:last-child .mv-kicker {
+  color: #a5c8ff;
+}
+
+.mv-col:last-child .mv-title {
+  color: #ffffff;
+}
+
+.mv-col:last-child .mv-desc {
+  color: #e5efff;
+}
+
 .mv-kicker {
   font-size: 13.5px;
   font-weight: 700;
@@ -1918,16 +2217,18 @@ footer nav a:hover {
   color: var(--blue);
   margin-bottom: 10px;
 }
+
 .mv-title {
   font-size: 24px;
   font-weight: 800;
   color: var(--navy);
   margin-bottom: 14px;
 }
+
 .mv-desc {
-  font-size: 16.5px;
+  font-size: 16px;
   color: #000000;
-  line-height: 1.72;
+  line-height: 1.7;
   margin: 0;
 }
 @media (max-width: 768px) {
@@ -2057,4 +2358,694 @@ footer nav a:hover {
   color: var(--navy);
   font-weight: 600;
   margin-top: 4px;
+}
+
+
+/* One Logistics Partner, Coordinated Solutions — Balanced Two-Column Section */
+.about-overview-section {
+  background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
+  border-top: 1px solid #e8f0fc;
+  border-bottom: 1px solid #e8f0fc;
+  padding: 88px 0;
+}
+
+.about-overview-section .split {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.about-overview-section .photo-wrap {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 14px 34px -8px rgba(8, 40, 164, 0.12);
+  border: 1.5px solid #d4e3f8;
+  background: #ffffff;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.about-overview-section .photo-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 42px -8px rgba(8, 40, 164, 0.18);
+  border-color: var(--blue);
+}
+
+.about-overview-section .photo-wrap img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+  border-radius: var(--radius);
+  transition: transform 0.4s ease;
+}
+
+.about-overview-section .about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* ==========================================================================
+   PROFESSIONAL BLUE HERO TREATMENTS (SERVICES, APPROACH, PARTNERSHIPS, CONTACT)
+   ========================================================================== */
+.hero.services-hero,
+.hero.approach-hero,
+.hero.partnerships-hero,
+.hero.contact-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  padding: 86px 0 76px;
+  border-bottom: none;
+  overflow: hidden;
+}
+
+.hero.services-hero {
+  background-image: linear-gradient(135deg, rgba(8, 40, 164, 0.78) 0%, rgba(4, 18, 72, 0.88) 100%), url('images/dock.jpg');
+}
+
+.hero.approach-hero {
+  background-image: linear-gradient(135deg, rgba(8, 40, 164, 0.78) 0%, rgba(4, 18, 72, 0.88) 100%), url('images/redtruck.jpg');
+}
+
+.hero.partnerships-hero {
+  background-image: linear-gradient(135deg, rgba(8, 40, 164, 0.78) 0%, rgba(4, 18, 72, 0.88) 100%), url('images/tugs.jpg');
+}
+
+.hero.contact-hero {
+  background-image: linear-gradient(135deg, rgba(8, 40, 164, 0.78) 0%, rgba(4, 18, 72, 0.88) 100%), url('images/gate1.jpg');
+}
+
+.hero.services-hero h1,
+.hero.approach-hero h1,
+.hero.partnerships-hero h1,
+.hero.contact-hero h1 {
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.hero.services-hero .lead,
+.hero.approach-hero .lead,
+.hero.partnerships-hero .lead,
+.hero.contact-hero .lead {
+  color: #e5efff;
+  max-width: 84ch;
+  line-height: 1.7;
+}
+
+.hero.services-hero h1 .text-brand-dark,
+.hero.approach-hero h1 .text-brand-dark,
+.hero.partnerships-hero h1 .text-brand-dark,
+.hero.contact-hero h1 .text-brand-dark {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.hero.services-hero h1 .text-brand-blue,
+.hero.approach-hero h1 .text-brand-blue,
+.hero.partnerships-hero h1 .text-brand-blue,
+.hero.contact-hero h1 .text-brand-blue {
+  color: #64b0ff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* About Hero Visibility Enhancement */
+.hero.about-hero {
+  background-image: linear-gradient(135deg, rgba(8, 40, 164, 0.74) 0%, rgba(4, 18, 72, 0.84) 100%), url('images/apapa.jpg');
+}
+
+/* Client Segments (Industrial Climate Segment) Alternating Card Upgrades */
+/* Client Segments — Full Rounded Animated Border (No Edge Lines) */
+.why-4grid .val-card {
+  border: 1.5px solid #d4e3f8;
+  border-radius: var(--radius);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.why-4grid .val-card:nth-child(odd) {
+  background: linear-gradient(145deg, #ffffff 0%, #f4f8fe 100%);
+}
+
+.why-4grid .val-card:nth-child(even) {
+  background: linear-gradient(145deg, #ffffff 0%, #edf2fa 100%);
+}
+
+.why-4grid .val-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 18px 38px -6px rgba(35, 115, 252, 0.2);
+}
+
+/* Collaboration Principles Refined 3D Cards */
+.dark-card-box .p-check-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+}
+
+.dark-card-box .p-check-item:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #64b0ff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Direct Asset Management — Distinctive Rich Blue Corporate Section */
+.direct-asset-section {
+  background: linear-gradient(135deg, #0828A4 0%, #051a6b 100%);
+  color: #ffffff;
+  padding: 88px 0;
+}
+
+.direct-asset-section h2 .text-brand-dark {
+  color: #ffffff;
+}
+
+.direct-asset-section h2 .text-brand-blue {
+  color: #64b0ff;
+}
+
+.direct-asset-section p.sub {
+  color: #e5efff;
+  font-weight: 600;
+}
+
+.direct-asset-section p {
+  color: #d0e1fa;
+}
+
+.direct-asset-section .photo-wrap {
+  border: 2px solid rgba(100, 176, 255, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Areas of Professional Expertise Animated CTA */
+.expertise-cta {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.expertise-cta .btn.blue {
+  box-shadow: 0 8px 24px rgba(35, 115, 252, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-cta .btn.blue:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 34px rgba(8, 40, 164, 0.55);
+}
+
+
+/* ==========================================================================
+   ROUND 3 UI/UX REFINEMENT SYSTEM
+   ========================================================================== */
+
+/* 1. Unified Heading Scale */
+.h2-unified,
+.head .h2,
+.values-head .h2,
+.services-section-head .h2,
+.hsqe-header h2,
+#why-bhb .h2,
+#leadership .head .h2,
+.about-text h2,
+.steps-head h2 {
+  font-size: clamp(30px, 3.6vw, 44px) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+}
+
+/* 2. One Logistics Partner Redesign (Homepage Hero Follow-Up) */
+.one-partner-section {
+  background: linear-gradient(135deg, #0828A4 0%, #051a6b 100%);
+  color: #ffffff;
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.one-partner-section::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(35, 115, 252, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.one-partner-section h2 {
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.one-partner-section h2 .text-brand-dark {
+  color: #ffffff;
+}
+
+.one-partner-section h2 .text-brand-blue {
+  color: #64b0ff;
+}
+
+.one-partner-section p.sub {
+  color: #e5efff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.one-partner-section p {
+  color: #d0e1fa;
+  font-size: 16px;
+  line-height: 1.72;
+  margin-bottom: 14px;
+}
+
+.one-partner-section .photo-wrap {
+  border: 2.5px solid rgba(100, 176, 255, 0.55);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+  background: #041444;
+  overflow: hidden;
+}
+
+.one-partner-section .photo-wrap img {
+  border-radius: calc(var(--radius-lg) - 3px);
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.one-partner-section .photo-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.one-partner-section .btn.line-white {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  font-weight: 700;
+  padding: 11px 24px;
+  transition: all 0.3s ease;
+}
+
+.one-partner-section .btn.line-white:hover {
+  background: #ffffff;
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* 3. Vision & Mission Section */
+.vm-section {
+  background: linear-gradient(180deg, #f0f6ff 0%, #e6f0fc 100%);
+  padding: 86px 0;
+}
+
+/* 4. Core Values Section */
+.values-section {
+  background: linear-gradient(180deg, #eef5ff 0%, #ffffff 100%);
+  padding: 88px 0;
+}
+
+/* 5. Services Section Background */
+.services-home-section {
+  background: linear-gradient(180deg, #f6faff 0%, #edf4fd 100%);
+  padding: 92px 0;
+}
+
+/* 6. Why Choose BHB — Horizontal Connected Advantage Framework */
+.advantage-framework-section {
+  background: linear-gradient(135deg, #0828A4 0%, #0d36ca 50%, #051a6b 100%);
+  color: #ffffff;
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.advantage-framework-section::before {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(35, 115, 252, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.advantage-framework-section .head .h2 {
+  color: #ffffff;
+}
+
+.advantage-framework-section .head .h2 .text-brand-dark {
+  color: #ffffff;
+}
+
+.advantage-framework-section .head .h2 .text-brand-blue {
+  color: #64b0ff;
+}
+
+.advantage-framework-section .head .sub {
+  color: #dce7fc;
+  font-size: 17.5px;
+  max-width: 78ch;
+}
+
+.advantage-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.advantage-track::before {
+  content: "";
+  position: absolute;
+  top: 36px;
+  left: 60px;
+  right: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(100, 176, 255, 0.6) 0%, rgba(255, 255, 255, 0.85) 50%, rgba(100, 176, 255, 0.6) 100%);
+  z-index: 1;
+}
+
+.advantage-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius);
+  padding: 32px 24px 28px;
+  backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.advantage-node:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #64b0ff;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.32);
+}
+
+.advantage-num {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--navy);
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  border: 2.5px solid #64b0ff;
+  transition: all 0.3s ease;
+}
+
+.advantage-node:hover .advantage-num {
+  background: #2373FC;
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: scale(1.1);
+}
+
+.advantage-node h4 {
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.advantage-node p {
+  color: #d6e5fb;
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .advantage-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .advantage-track::before {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .advantage-track {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 7. Process Timeline for How We Work (about.html & approach.html) */
+.process-timeline-section {
+  background: #ffffff;
+  padding: 92px 0;
+}
+
+.process-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 54px;
+}
+
+.process-timeline::before {
+  content: "";
+  position: absolute;
+  top: 36px;
+  left: 60px;
+  right: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #0828A4 0%, #2373FC 50%, #0828A4 100%);
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.process-node {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(145deg, #ffffff 0%, #f4f8fe 100%);
+  border: 1.5px solid #d4e3f8;
+  border-radius: var(--radius);
+  padding: 30px 24px 26px;
+  box-shadow: 0 6px 20px rgba(8, 40, 164, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.process-node:hover {
+  transform: translateY(-8px);
+  border-color: var(--blue);
+  box-shadow: 0 20px 40px rgba(35, 115, 252, 0.18);
+}
+
+.process-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0828A4 0%, #2373FC 100%);
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 16px rgba(35, 115, 252, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.process-node:hover .process-badge {
+  transform: scale(1.12) rotate(4deg);
+}
+
+.process-node h4 {
+  font-size: 18px;
+  color: var(--navy);
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.process-node p {
+  font-size: 14.5px;
+  color: #000000;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .process-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .process-timeline::before {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .process-timeline {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 8. Coordinated Blue Shades for HSEQ Cards */
+#hsqe {
+  background: linear-gradient(180deg, #edf4fe 0%, #e3edfa 100%);
+  padding: 92px 0;
+}
+
+.hsqe-container {
+  background: #ffffff;
+  border: 1.5px solid #cadff8;
+  border-radius: var(--radius-lg);
+  padding: 56px 48px;
+  box-shadow: 0 16px 40px rgba(8, 40, 164, 0.08);
+}
+
+.hsqe-block {
+  border-radius: 18px;
+  padding: 30px 24px;
+  box-shadow: 0 8px 24px rgba(8, 40, 164, 0.1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.hsqe-block:nth-child(1) {
+  background: linear-gradient(145deg, #0828A4 0%, #0d38bd 100%);
+  border: 1.5px solid #3d79f0;
+}
+
+.hsqe-block:nth-child(2) {
+  background: linear-gradient(145deg, #0f39c2 0%, #1a5be0 100%);
+  border: 1.5px solid #5895ff;
+}
+
+.hsqe-block:nth-child(3) {
+  background: linear-gradient(145deg, #092c9f 0%, #061e74 100%);
+  border: 1.5px solid #417be8;
+}
+
+.hsqe-block:nth-child(4) {
+  background: linear-gradient(145deg, #1247d4 0%, #0828A4 100%);
+  border: 1.5px solid #528eff;
+}
+
+.hsqe-block:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 22px 46px rgba(8, 40, 164, 0.35);
+  border-color: #a8cdff;
+}
+
+.hsqe-block .hsqe-block-badge {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 5px 12px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.hsqe-block h4 {
+  font-size: 19px;
+  color: #ffffff !important;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.hsqe-block p {
+  font-size: 14.5px;
+  color: #e8f1ff !important;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* 9. About Us Direct Fleet Control Overview Section */
+.about-fleet-overview {
+  background: linear-gradient(180deg, #f4f8fe 0%, #edf4fc 100%);
+  padding: 88px 0;
+}
+
+.about-fleet-overview .photo-wrap {
+  border: 2px solid rgba(35, 115, 252, 0.4);
+  box-shadow: 0 16px 36px rgba(8, 40, 164, 0.12);
+}
+
+/* 10. Sequential 4-Step Haulage Delivery Journey Tracking */
+.steps-4grid {
+  position: relative;
+}
+
+.steps-4grid::before {
+  content: "";
+  position: absolute;
+  top: 42px;
+  left: 60px;
+  right: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #0828A4 0%, #2373FC 50%, #0828A4 100%);
+  z-index: 1;
+  opacity: 0.25;
+}
+
+.steps-4grid .step-card {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 980px) {
+  .steps-4grid::before {
+    display: none;
+  }
+}
+
+/* 11. Hero text readability and wrap improvements */
+.hero.about-hero .lead {
+  max-width: 92ch !important;
+  font-size: clamp(17px, 1.5vw, 20.5px);
+  line-height: 1.68;
+}
+
+.lead-quote-box p {
+  color: #ffffff !important;
 }

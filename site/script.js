@@ -190,3 +190,75 @@ if ('IntersectionObserver' in window) {
     el.classList.add('is-visible');
   });
 }
+
+
+// ==========================================================================
+// ADVANCED GLOBAL MICRO-INTERACTIONS & MOTION SYSTEM
+// ==========================================================================
+
+// 1. Subtle Parallax Effect for Hero Sections
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReducedMotion) {
+  const heroEl = document.querySelector('.hero');
+  if (heroEl) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          if (scrolled < 700) {
+            heroEl.style.backgroundPositionY = `calc(35% + ${scrolled * 0.18}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // 2. Interactive 3D Perspective Tilt on Interactive Cards
+  const tiltCards = document.querySelectorAll('.fact-card, .val-card, .step-card, .hsqe-block, .advantage-node, .process-node');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const deltaX = (x - centerX) / centerX;
+      const deltaY = (y - centerY) / centerY;
+      
+      const rotateX = -deltaY * 5; // max 5 deg tilt
+      const rotateY = deltaX * 5;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+
+// Sequential entrance animation for connected framework tracks
+const trackObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-animated');
+      const nodes = entry.target.querySelectorAll('.advantage-node, .process-node, .step-card');
+      nodes.forEach((node, idx) => {
+        setTimeout(() => {
+          node.style.opacity = '1';
+          node.style.transform = 'translateY(0)';
+        }, idx * 140);
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.advantage-track, .process-timeline, .steps-4grid').forEach(el => {
+  trackObserver.observe(el);
+});
